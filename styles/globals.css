@@ -25,3 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.leaflet-container {
+  background: transparent;
+  height: 450px;
+  width: 100%;
+}
