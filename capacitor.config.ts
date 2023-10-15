@@ -3,7 +3,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'org.inergia.capitalse',
   appName: 'capitals-e',
-  webDir: 'public',
+  webDir: 'out',
   server: {
     androidScheme: 'https'
   }
