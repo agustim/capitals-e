@@ -25,10 +25,17 @@ function HomePage() {
 
   useEffect(() => {
     setOriginalPaisos(data.features);
+    let local_names = [];
     let localPaisos = [];
     data.features.map((feature, index) => {
-      localPaisos.push({ idGeojson: index, nom: feature.properties.name, capital: feature.properties.capital, feta: false });
+      local_names.push(feature.properties.name);
+      console.log(feature.properties.name);
+      localPaisos.push({ idGeojson: index, nom: feature.properties.name, 
+                         capital: feature.properties.capital, feta: false,
+                         lat: feature.properties.lat, lon: feature.properties.lon });
     });
+    local_names.sort();
+    console.log(local_names);
     setPaisos(localPaisos);
     console.log(localPaisos)
     console.log("data:", data.features.length);
