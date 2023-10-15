@@ -6,7 +6,7 @@ import { Preloader } from "konsta/react";
 
 function Map({ countries }) {
 
-  const { paisActiu, setPaisActiu } = useGlobalContext()
+  const { paisActiu, setPaisActiu, getPoint, getZoom } = useGlobalContext()
   const [reload, setReload] = useState(false)
   const position = [49, 10]
 
@@ -22,7 +22,7 @@ function Map({ countries }) {
     return ( <Preloader /> );
   } else {
     return (
-      <MapContainer center={position} zoom={3} scrollWheelZoom={false}>
+      <MapContainer center={getPoint()} zoom={getZoom()} scrollWheelZoom={false}>
         <TileLayer
           attribution="&copy; Agustí Moll"
           url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png"

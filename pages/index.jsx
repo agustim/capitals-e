@@ -17,7 +17,7 @@ import { useGlobalContext } from "../hooks/useGlobalContext";
 import { get } from "https";
 
 function HomePage() {
-  const { paisos, setPaisos, checkPais, setOriginalPaisos, encerts, ajudes, setAjudes, getPais, getCapital, selectPais } = useGlobalContext();
+  const { paisos, setPaisos, checkPais, setOriginalPaisos, encerts, ajudes, setAjudes, getPais, getCapital, selectPais, nextPais } = useGlobalContext();
   const paisForm = useRef();
   const capitalForm = useRef();
   const [mostrarAjudes, setMostrarAjudes] = useState(false);
@@ -32,7 +32,8 @@ function HomePage() {
       console.log(feature.properties.name);
       localPaisos.push({ idGeojson: index, nom: feature.properties.name, 
                          capital: feature.properties.capital, feta: false,
-                         lat: feature.properties.lat, lon: feature.properties.lon });
+                         lat: feature.properties.lat, lon: feature.properties.lon, 
+                         zoom: feature.properties.zoom });
     });
     local_names.sort();
     console.log(local_names);
@@ -79,10 +80,13 @@ function HomePage() {
         />
       </List>
       <Block className="flex space-x-1 !space-y-0 py-0 mb-0 mt-0">
-        <Button className="!w-1/2 py-8" 
+        <Button className="!w-1/3 py-8" 
                 onClick={() => onCheckPais()}>Comprovar</Button>
-        <Button className="!w-1/2 py-8" 
+        <Button className="!w-1/3 py-8" 
                 onClick={() => ajuda()}>Ajuda</Button>
+        <Button className="!w-1/3 py-8" 
+                onClick={() => nextPais()}>Next</Button>
+        
       </Block>
       <Map countries={data.features} />
 

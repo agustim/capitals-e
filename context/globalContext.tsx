@@ -6,7 +6,8 @@ export interface Pais {
     capital: string;
     feta: boolean;
     lat?: number;
-    long?: number;
+    lon?: number;
+    zoom?: number;
 }
 
 
@@ -24,7 +25,10 @@ export const GlobalContext = React.createContext({
     ajudes: 0,
     setAjudes: (value: number) => {},
     getPais: () => {},
-    getCapital: () => {}
+    getCapital: () => {},
+    getPoint: () => {},
+    getZoom: () => {},
+    nextPais: () => {}
 })
 
 export const GlobalContextProvider =  (props:any) => {
@@ -58,6 +62,18 @@ export const GlobalContextProvider =  (props:any) => {
         }
         setPaisActiu(y);
     };
+
+    const nextPais = () => {
+        if (paisos.length > 0 && paisActiu !== null) {
+            if (paisActiu < paisos.length - 1){
+                setPaisActiu(paisActiu + 1);
+            } else {
+                setPaisActiu(0);
+            }
+        } else {
+            console.log("No hi ha paisos");
+        }
+    }
 
     const checkPais = (nom: string, capital: string) => {
         let ret = false;
@@ -100,7 +116,13 @@ export const GlobalContextProvider =  (props:any) => {
     }
     const getCapital = () => {
         return getCountry()?.capital;
-    }   
+    }
+    const getPoint = () => {
+        return [getCountry()?.lon, getCountry()?.lat];
+    }
+    const getZoom = () => {
+        return getCountry()?.zoom;
+    }
 
     useEffect(() => {
         console.log("GlobalContextProvider")
@@ -128,7 +150,10 @@ export const GlobalContextProvider =  (props:any) => {
             ajudes,
             setAjudes,
             getPais,
-            getCapital
+            getCapital,
+            getPoint,
+            getZoom,
+            nextPais
             }}>
             {props.children}
         </GlobalContext.Provider>
