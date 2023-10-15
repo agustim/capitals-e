@@ -30,6 +30,7 @@ function HomePage() {
       localPaisos.push({ idGeojson: index, nom: feature.properties.name, capital: feature.properties.capital, feta: false });
     });
     setPaisos(localPaisos);
+    console.log(localPaisos)
     console.log("data:", data.features.length);
   }, [])
 
@@ -37,7 +38,7 @@ function HomePage() {
   const onCheckPais = () => {
     const paisField = paisForm.current.inputEl;
     const capitalField = capitalForm.current.inputEl;
-    if (checkPais(paisForm.current.inputEl.value, capitalField.value)) {
+    if (checkPais(paisField.value, capitalField.value)) {
       paisField.value = "";
       capitalField.value = "";
     }
@@ -61,14 +62,13 @@ function HomePage() {
       <List strongIos insetIos className="llista !ml-0-safe !mr-0-safe">
         <ListInput
           type="text"
-          placeholder="Capital"
-          ref={capitalForm}
-        />
-
-        <ListInput
-          type="text"
           placeholder="País"
           ref={paisForm}
+        />
+        <ListInput
+          type="text"
+          placeholder="Capital"
+          ref={capitalForm}
         />
       </List>
       <Block className="flex space-x-1 !space-y-0 py-0 mb-0 mt-0">

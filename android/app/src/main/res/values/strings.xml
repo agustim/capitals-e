@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">capitals-e</string>
+    <string name="title_activity_main">capitals-e</string>
+    <string name="package_name">org.inergia.capitalse</string>
+    <string name="custom_url_scheme">org.inergia.capitalse</string>
+</resources>

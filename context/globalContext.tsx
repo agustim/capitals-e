@@ -96,7 +96,7 @@ export const GlobalContextProvider =  (props:any) => {
         return getCountry()?.nom;
     }
     const getCapital = () => {
-        return getCountry()?.nom;
+        return getCountry()?.capital;
     }   
 
     useEffect(() => {
