@@ -27,7 +27,7 @@ function HomePage() {
     setOriginalPaisos(data.features);
     let localPaisos = [];
     data.features.map((feature, index) => {
-      localPaisos.push({ idGeojson: index, nom: feature.properties.name, capital: feature.properties.name_long, feta: false });
+      localPaisos.push({ idGeojson: index, nom: feature.properties.name, capital: feature.properties.capital, feta: false });
     });
     setPaisos(localPaisos);
     console.log("data:", data.features.length);
