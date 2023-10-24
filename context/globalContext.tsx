@@ -20,15 +20,19 @@ export const GlobalContext = React.createContext({
     setPaisActiu: (value: number | null) => {},
     selectPais: () => {},
     checkPais: (nom: string, capital: string) => {},
+    marcarPaisActiuFet: () => {},
+    netejarPaisos: () => {},
     encerts: 0,
     setEncerts: (value: number) => {},
     ajudes: 0,
     setAjudes: (value: number) => {},
+    comptarPaisosNoFets: () => {},
     getPais: () => {},
     getCapital: () => {},
     getPoint: () => {},
     getZoom: () => {},
-    nextPais: () => {}
+    nextPais: () => {},
+    debugPaisos: () => {}
 })
 
 export const GlobalContextProvider =  (props:any) => {
@@ -42,23 +46,38 @@ export const GlobalContextProvider =  (props:any) => {
         return Math.floor(Math.random() * max);
     };
 
-    const selectPais = () => {
-        const number = randomNumber(paisos.length-1 );
-        let y = 0;
+    const comptarPaisosNoFets = () => {
         let count = 0;
-        for (let i = 0; i < number && count < paisos.length;) {
-            console.log("i: " + i + " y: " + y + " count: " + count);
-            if (!paisos[y].feta) {
-                count = 0;
-                i++;
-            } else {
+        paisos.forEach((pais) => {
+            if (!pais.feta) {
                 count++;
             }
-            y = (i == paisos.length) ? 0 : y + 1;
+        });
+        return count;
+    }
+
+    const buscaPaisX = (x: number):number  => {
+        let i = 0;
+        let count = 0;
+        for (; i < paisos.length; i++) {
+            if (!paisos[i].feta) {
+                if (count == x) {
+                    break;
+                }
+                count++;
+            }
         }
-        if (count == paisos.length && paisos.length > 0) {
+        return i;   
+    }
+
+    const selectPais = () => {
+        const numeroPaisosRestants = comptarPaisosNoFets();
+        if (numeroPaisosRestants === 0) {
             console.log("Tots els paisos fets");
+            return;
         }
+        const numero = randomNumber(numeroPaisosRestants);
+        const y = buscaPaisX(numero);        
         setPaisActiu(y);
     };
 
@@ -74,28 +93,47 @@ export const GlobalContextProvider =  (props:any) => {
         }
     }
 
-    const checkPais = (nom: string, capital: string) => {
-        let ret = false;
-        // Busquem el país actiu
-        console.log("Pais actiu: " + paisActiu);
+    const isCorrectPais = (nom: string, capital: string):[boolean, number|null] => {
         for (let i = 0; i < paisos.length; i++) {
             if (paisos[i].idGeojson == paisActiu) {
-                console.log(paisos[i])
                 // Comprovem si el nom i la capital coincideixen
-                if (paisos[i].nom == nom && paisos[i].capital == capital) {
-                    // Marquem el país com a fet
-                    paisos[i].feta = true;
-                    // Actualitzem el context
-                    setPaisos(paisos);
-                    // Seleccionem un nou país
-                    selectPais();
-                    // Sumem un encert
-                    setEncerts(encerts + 1);
-                    // Retornem true
-                    ret = true;
-                }
-                break;
+                return [(paisos[i].nom == nom && paisos[i].capital == capital), i]; 
             }
+        }
+        return [false, null];
+    }
+    const marcarPaisActiuFet = () => {
+        if (paisActiu === null) {
+            return;
+        }
+        const paisosAux = paisos;
+        paisosAux[paisActiu].feta = true;
+        setPaisos(paisosAux);
+    }
+
+    const netejarPaisos = () => {
+        const paisosAux = paisos;
+        paisosAux.forEach((pais) => {
+            pais.feta = false;
+        });
+        setPaisos(paisosAux);
+    }
+
+    const checkPais = (nom: string, capital: string) => {
+
+        const [ret, paisActiu] = isCorrectPais(nom, capital);
+
+        if (ret && paisActiu !== null) {
+            // Marquem el país com a fet
+            marcarPaisActiuFet();
+            // Actualitzem el context
+            setPaisos(paisos);
+            // Seleccionem un nou país
+            selectPais();
+            // Sumem un encert
+            setEncerts(encerts + 1);
+            // Retornem true
+            return true;
         }
         return ret;
     }
@@ -123,6 +161,12 @@ export const GlobalContextProvider =  (props:any) => {
         return getCountry()?.zoom;
     }
 
+    const debugPaisos = () => {
+        paisos.forEach((pais) => {
+            console.log(pais.nom + ":" + pais.capital+ " " + pais.feta);
+        });
+    }
+
     useEffect(() => {
         console.log("GlobalContextProvider")
     }, [])
@@ -144,15 +188,19 @@ export const GlobalContextProvider =  (props:any) => {
             setPaisActiu,
             selectPais,
             checkPais,
+            marcarPaisActiuFet,
+            netejarPaisos,
             encerts,
             setEncerts,
             ajudes,
             setAjudes,
+            comptarPaisosNoFets,
             getPais,
             getCapital,
             getPoint,
             getZoom,
-            nextPais
+            nextPais,
+            debugPaisos
             }}>
             {props.children}
         </GlobalContext.Provider>

@@ -13,15 +13,19 @@ import {
 } from "konsta/react";
 
 import data from "../geojson/eu-countries.geo.json";
+// import data from "../geojson/demo-countries.json";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { get } from "https";
 
 function HomePage() {
-  const { paisos, setPaisos, checkPais, setOriginalPaisos, encerts, ajudes, setAjudes, getPais, getCapital, selectPais, nextPais } = useGlobalContext();
+  const { paisos, setPaisos, checkPais, setOriginalPaisos, encerts, ajudes,
+    setAjudes, getPais, getCapital, selectPais, nextPais, marcarPaisActiuFet, debugPaisos, 
+    comptarPaisosNoFets, netejarPaisos } = useGlobalContext();
   const paisForm = useRef();
   const capitalForm = useRef();
   const [mostrarAjudes, setMostrarAjudes] = useState(false);
   const [mostrarError, setMostrarError] = useState(false);
+  const [finalPartida, setFinalPartida] = useState(false);
 
 
   useEffect(() => {
@@ -31,10 +35,12 @@ function HomePage() {
     data.features.map((feature, index) => {
       local_names.push(feature.properties.name);
       console.log(feature.properties.name);
-      localPaisos.push({ idGeojson: index, nom: feature.properties.name, 
-                         capital: feature.properties.capital, feta: false,
-                         lat: feature.properties.lat, lon: feature.properties.lon, 
-                         zoom: feature.properties.zoom });
+      localPaisos.push({
+        idGeojson: index, nom: feature.properties.name,
+        capital: feature.properties.capital, feta: false,
+        lat: feature.properties.lat, lon: feature.properties.lon,
+        zoom: feature.properties.zoom
+      });
     });
     local_names.sort();
     console.log(local_names);
@@ -50,6 +56,9 @@ function HomePage() {
     if (checkPais(paisField.value, capitalField.value)) {
       paisField.value = "";
       capitalField.value = "";
+      if (comptarPaisosNoFets() === 0) {
+        setFinalPartida(true);
+      }
     } else {
       setMostrarError(true);
       setTimeout(() => {
@@ -61,16 +70,33 @@ function HomePage() {
   const ajuda = () => {
     setMostrarAjudes(true);
     setAjudes(ajudes + 1);
+    marcarPaisActiuFet();
+    debugPaisos();
   }
   const closeAjuda = () => {
+    setMostrarAjudes(false);
     const paisField = paisForm.current.inputEl;
     const capitalField = capitalForm.current.inputEl;
     paisField.value = "";
     capitalField.value = "";
-    selectPais();
-    setMostrarAjudes(false);
+    if (comptarPaisosNoFets() === 0) {
+      setFinalPartida(true);
+    } else {
+      selectPais();
+    }
   }
-    
+
+  const closeFinal = () => {
+    setFinalPartida(false);
+  }
+
+  const restartPartida = () => {
+    netejarPaisos();
+    closeFinal();
+    setTimeout(() => {
+      selectPais();
+    }, 500);
+  }
 
   return (
     <Page>
@@ -90,18 +116,18 @@ function HomePage() {
         />
       </List>
       <Block className="flex space-x-1 !space-y-0 py-0 mb-0 mt-0">
-        <Button className="!w-1/2 py-8" 
-                onClick={() => onCheckPais()}>Comprovar</Button>
-        <Button className="!w-1/2 py-8" 
-                onClick={() => ajuda()}>Ajuda</Button>
-        
+        <Button className="!w-1/2 py-8"
+          onClick={() => onCheckPais()}>Comprovar</Button>
+        <Button className="!w-1/2 py-8"
+          onClick={() => ajuda()}>Ajuda</Button>
+
       </Block>
       <Map countries={data.features} />
 
       <Popup opened={mostrarAjudes} onBackdropClick={() => closeAjuda()}>
         <Page>
           <Navbar
-            title="Ajudda"
+            title="Ajuda"
             right={
               <Link navbar onClick={() => closeAjuda()}>
                 X
@@ -110,8 +136,8 @@ function HomePage() {
           />
           <Block className="space-y-4">
             <List strongIos insetIos>
-              <ListItem title={`Pais: ${getPais()}`}/>
-              <ListItem title={`Capital: ${getCapital()}`}/>
+              <ListItem title={`Pais: ${getPais()}`} />
+              <ListItem title={`Capital: ${getCapital()}`} />
             </List>
           </Block>
         </Page>
@@ -134,6 +160,29 @@ function HomePage() {
             </List> */}
             <Block>
               <h1>El país o la capital no son correctes.</h1>
+            </Block>
+          </Block>
+        </Page>
+      </Popup>
+
+      <Popup opened={finalPartida} onBackdropClick={() => closeFinal()}>
+        <Page>
+          <Navbar
+            title="Final"
+            right={
+              <Link navbar onClick={() => closeFinal()}>
+                X
+              </Link>
+            }
+          />
+          <Block className="space-y-4">
+            <div className="text-xl">Ja hem repassat tots els països!</div>
+            <div className="pb-2">Tots els països han estat preguntats, vols que torni a preguntar-te&apos;ls?</div>
+            <Block className="flex space-x-1 !space-y-0 py-0 mb-0 mt-0">
+              <Button className="!w-1/2 py-8"
+                onClick={() => restartPartida()}>Sí</Button>
+              <Button className="!w-1/2 py-8"
+                onClick={() => closeFinal()}>No</Button>
             </Block>
           </Block>
         </Page>

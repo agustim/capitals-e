@@ -1,0 +1,538 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "scalerank": 1,
+                "featurecla": "Admin-0 country",
+                "labelrank": 6,
+                "sovereignt": "Albania",
+                "sov_a3": "ALB",
+                "adm0_dif": 0,
+                "level": 2,
+                "type": "Sovereign country",
+                "admin": "Albania",
+                "adm0_a3": "ALB",
+                "geou_dif": 0,
+                "geounit": "Albania",
+                "gu_a3": "ALB",
+                "su_dif": 0,
+                "subunit": "Albania",
+                "su_a3": "ALB",
+                "brk_diff": 0,
+                "name": "Albània",
+                "lat": 10,
+                "lon": 49,
+                "zoom": 3,
+                "capital": "Tirana",
+                "name_long": "Albania",
+                "brk_a3": "ALB",
+                "brk_name": "Albania",
+                "brk_group": null,
+                "abbrev": "Alb.",
+                "postal": "AL",
+                "formal_en": "Republic of Albania",
+                "formal_fr": null,
+                "note_adm0": null,
+                "note_brk": null,
+                "name_sort": "Albania",
+                "name_alt": null,
+                "mapcolor7": 1,
+                "mapcolor8": 4,
+                "mapcolor9": 1,
+                "mapcolor13": 6,
+                "pop_est": 3639453,
+                "gdp_md_est": 21810,
+                "pop_year": -99,
+                "lastcensus": 2001,
+                "gdp_year": -99,
+                "economy": "6. Developing region",
+                "income_grp": "4. Lower middle income",
+                "wikipedia": -99,
+                "fips_10": null,
+                "iso_a2": "AL",
+                "iso_a3": "ALB",
+                "iso_n3": "008",
+                "un_a3": "008",
+                "wb_a2": "AL",
+                "wb_a3": "ALB",
+                "woe_id": -99,
+                "adm0_a3_is": "ALB",
+                "adm0_a3_us": "ALB",
+                "adm0_a3_un": -99,
+                "adm0_a3_wb": -99,
+                "continent": "Europe",
+                "region_un": "Europe",
+                "subregion": "Southern Europe",
+                "region_wb": "Europe & Central Asia",
+                "name_len": 7,
+                "long_len": 7,
+                "abbrev_len": 4,
+                "tiny": -99,
+                "homepart": 1
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            20.59024743010491,
+                            41.855404161133606
+                        ],
+                        [
+                            20.463175083099202,
+                            41.51508901627534
+                        ],
+                        [
+                            20.605181919037364,
+                            41.086226304685226
+                        ],
+                        [
+                            21.0200403174764,
+                            40.84272695572588
+                        ],
+                        [
+                            20.999989861747224,
+                            40.58000397395398
+                        ],
+                        [
+                            20.674996779063633,
+                            40.43499990494303
+                        ],
+                        [
+                            20.615000441172754,
+                            40.11000682225938
+                        ],
+                        [
+                            20.15001590341052,
+                            39.62499766698397
+                        ],
+                        [
+                            19.980000441170148,
+                            39.69499339452341
+                        ],
+                        [
+                            19.960001661873207,
+                            39.91500580500605
+                        ],
+                        [
+                            19.406081984136733,
+                            40.250773423822466
+                        ],
+                        [
+                            19.319058872157143,
+                            40.72723012955356
+                        ],
+                        [
+                            19.40354983895429,
+                            41.40956574153546
+                        ],
+                        [
+                            19.540027296637106,
+                            41.71998607031276
+                        ],
+                        [
+                            19.37176883309496,
+                            41.877547512370654
+                        ],
+                        [
+                            19.304486118250793,
+                            42.19574514420782
+                        ],
+                        [
+                            19.73805138517963,
+                            42.68824738216557
+                        ],
+                        [
+                            19.801613396898688,
+                            42.50009349219084
+                        ],
+                        [
+                            20.0707,
+                            42.58863
+                        ],
+                        [
+                            20.283754510181893,
+                            42.32025950781508
+                        ],
+                        [
+                            20.52295,
+                            42.21787
+                        ],
+                        [
+                            20.59024743010491,
+                            41.855404161133606
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "scalerank": 1,
+                "featurecla": "Admin-0 country",
+                "labelrank": 4,
+                "sovereignt": "Austria",
+                "sov_a3": "AUT",
+                "adm0_dif": 0,
+                "level": 2,
+                "type": "Sovereign country",
+                "admin": "Austria",
+                "adm0_a3": "AUT",
+                "geou_dif": 0,
+                "geounit": "Austria",
+                "gu_a3": "AUT",
+                "su_dif": 0,
+                "subunit": "Austria",
+                "su_a3": "AUT",
+                "brk_diff": 0,
+                "name": "Àustria",
+                "lat": 10,
+                "lon": 49,
+                "zoom": 3,
+                "capital": "Viena",
+                "name_long": "Austria",
+                "brk_a3": "AUT",
+                "brk_name": "Austria",
+                "brk_group": null,
+                "abbrev": "Aust.",
+                "postal": "A",
+                "formal_en": "Republic of Austria",
+                "formal_fr": null,
+                "note_adm0": null,
+                "note_brk": null,
+                "name_sort": "Austria",
+                "name_alt": null,
+                "mapcolor7": 3,
+                "mapcolor8": 1,
+                "mapcolor9": 3,
+                "mapcolor13": 4,
+                "pop_est": 8210281,
+                "gdp_md_est": 329500,
+                "pop_year": -99,
+                "lastcensus": 2011,
+                "gdp_year": -99,
+                "economy": "2. Developed region: nonG7",
+                "income_grp": "1. High income: OECD",
+                "wikipedia": -99,
+                "fips_10": null,
+                "iso_a2": "AT",
+                "iso_a3": "AUT",
+                "iso_n3": "040",
+                "un_a3": "040",
+                "wb_a2": "AT",
+                "wb_a3": "AUT",
+                "woe_id": -99,
+                "adm0_a3_is": "AUT",
+                "adm0_a3_us": "AUT",
+                "adm0_a3_un": -99,
+                "adm0_a3_wb": -99,
+                "continent": "Europe",
+                "region_un": "Europe",
+                "subregion": "Western Europe",
+                "region_wb": "Europe & Central Asia",
+                "name_len": 7,
+                "long_len": 7,
+                "abbrev_len": 5,
+                "tiny": -99,
+                "homepart": 1
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            16.979666782304037,
+                            48.123497015976305
+                        ],
+                        [
+                            16.90375410326726,
+                            47.71486562762833
+                        ],
+                        [
+                            16.340584344150415,
+                            47.71290192320123
+                        ],
+                        [
+                            16.534267612380376,
+                            47.49617096616912
+                        ],
+                        [
+                            16.202298211337364,
+                            46.85238597267696
+                        ],
+                        [
+                            16.011663852612656,
+                            46.6836107448117
+                        ],
+                        [
+                            15.137091912504985,
+                            46.65870270444703
+                        ],
+                        [
+                            14.63247155117483,
+                            46.43181732846955
+                        ],
+                        [
+                            13.806475457421527,
+                            46.509306138691215
+                        ],
+                        [
+                            12.376485223040817,
+                            46.76755910906985
+                        ],
+                        [
+                            12.153088006243054,
+                            47.11539317482645
+                        ],
+                        [
+                            11.16482791509327,
+                            46.94157949481273
+                        ],
+                        [
+                            11.048555942436536,
+                            46.75135854754634
+                        ],
+                        [
+                            10.44270145024663,
+                            46.89354625099743
+                        ],
+                        [
+                            9.932448357796659,
+                            46.92072805438296
+                        ],
+                        [
+                            9.479969516649021,
+                            47.102809963563374
+                        ],
+                        [
+                            9.632931756232978,
+                            47.34760122332999
+                        ],
+                        [
+                            9.59422610844635,
+                            47.52505809182027
+                        ],
+                        [
+                            9.89606814946319,
+                            47.580196845075704
+                        ],
+                        [
+                            10.402083774465211,
+                            47.30248769793916
+                        ],
+                        [
+                            10.544504021861627,
+                            47.56639923765377
+                        ],
+                        [
+                            11.426414015354737,
+                            47.523766181012974
+                        ],
+                        [
+                            12.141357456112788,
+                            47.703083401065776
+                        ],
+                        [
+                            12.620759718484493,
+                            47.67238760028441
+                        ],
+                        [
+                            12.932626987365948,
+                            47.467645575544
+                        ],
+                        [
+                            13.02585127122049,
+                            47.63758352313583
+                        ],
+                        [
+                            12.884102817443903,
+                            48.28914581968792
+                        ],
+                        [
+                            13.243357374737,
+                            48.416114813829054
+                        ],
+                        [
+                            13.595945672264437,
+                            48.87717194273715
+                        ],
+                        [
+                            14.338897739324722,
+                            48.55530528420721
+                        ],
+                        [
+                            14.901447381254057,
+                            48.964401760445824
+                        ],
+                        [
+                            15.253415561593982,
+                            49.03907420510758
+                        ],
+                        [
+                            16.02964725105022,
+                            48.73389903420793
+                        ],
+                        [
+                            16.499282667718774,
+                            48.78580801044511
+                        ],
+                        [
+                            16.960288120194576,
+                            48.5969823268506
+                        ],
+                        [
+                            16.879982944413,
+                            48.47001333270947
+                        ],
+                        [
+                            16.979666782304037,
+                            48.123497015976305
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "scalerank": 1,
+                "featurecla": "Admin-0 country",
+                "labelrank": 2,
+                "sovereignt": "Belgium",
+                "sov_a3": "BEL",
+                "adm0_dif": 0,
+                "level": 2,
+                "type": "Sovereign country",
+                "admin": "Belgium",
+                "adm0_a3": "BEL",
+                "geou_dif": 0,
+                "geounit": "Belgium",
+                "gu_a3": "BEL",
+                "su_dif": 0,
+                "subunit": "Belgium",
+                "su_a3": "BEL",
+                "brk_diff": 0,
+                "name": "Bèlgica",
+                "lat": 10,
+                "lon": 49,
+                "zoom": 3,
+                "capital": "Brussel·les",
+                "name_long": "Belgium",
+                "brk_a3": "BEL",
+                "brk_name": "Belgium",
+                "brk_group": null,
+                "abbrev": "Belg.",
+                "postal": "B",
+                "formal_en": "Kingdom of Belgium",
+                "formal_fr": null,
+                "note_adm0": null,
+                "note_brk": null,
+                "name_sort": "Belgium",
+                "name_alt": null,
+                "mapcolor7": 3,
+                "mapcolor8": 2,
+                "mapcolor9": 1,
+                "mapcolor13": 8,
+                "pop_est": 10414336,
+                "gdp_md_est": 389300,
+                "pop_year": -99,
+                "lastcensus": 2011,
+                "gdp_year": -99,
+                "economy": "2. Developed region: nonG7",
+                "income_grp": "1. High income: OECD",
+                "wikipedia": -99,
+                "fips_10": null,
+                "iso_a2": "BE",
+                "iso_a3": "BEL",
+                "iso_n3": "056",
+                "un_a3": "056",
+                "wb_a2": "BE",
+                "wb_a3": "BEL",
+                "woe_id": -99,
+                "adm0_a3_is": "BEL",
+                "adm0_a3_us": "BEL",
+                "adm0_a3_un": -99,
+                "adm0_a3_wb": -99,
+                "continent": "Europe",
+                "region_un": "Europe",
+                "subregion": "Western Europe",
+                "region_wb": "Europe & Central Asia",
+                "name_len": 7,
+                "long_len": 7,
+                "abbrev_len": 5,
+                "tiny": -99,
+                "homepart": 1
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            3.314971144228537,
+                            51.345780951536085
+                        ],
+                        [
+                            4.047071160507528,
+                            51.26725861266857
+                        ],
+                        [
+                            4.973991326526914,
+                            51.47502370869813
+                        ],
+                        [
+                            5.606975945670001,
+                            51.03729848896978
+                        ],
+                        [
+                            6.15665815595878,
+                            50.80372101501058
+                        ],
+                        [
+                            6.043073357781111,
+                            50.128051662794235
+                        ],
+                        [
+                            5.782417433300907,
+                            50.09032786722122
+                        ],
+                        [
+                            5.674051954784829,
+                            49.529483547557504
+                        ],
+                        [
+                            4.79922163251581,
+                            49.985373033236385
+                        ],
+                        [
+                            4.286022983425084,
+                            49.907496649772554
+                        ],
+                        [
+                            3.588184441755686,
+                            50.37899241800358
+                        ],
+                        [
+                            3.123251580425801,
+                            50.780363267614575
+                        ],
+                        [
+                            2.658422071960274,
+                            50.796848049515745
+                        ],
+                        [
+                            2.513573032246143,
+                            51.14850617126183
+                        ],
+                        [
+                            3.314971144228537,
+                            51.345780951536085
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
