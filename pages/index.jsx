@@ -21,6 +21,7 @@ function HomePage() {
   const paisForm = useRef();
   const capitalForm = useRef();
   const [mostrarAjudes, setMostrarAjudes] = useState(false);
+  const [mostrarError, setMostrarError] = useState(false);
 
 
   useEffect(() => {
@@ -49,6 +50,11 @@ function HomePage() {
     if (checkPais(paisField.value, capitalField.value)) {
       paisField.value = "";
       capitalField.value = "";
+    } else {
+      setMostrarError(true);
+      setTimeout(() => {
+        setMostrarError(false);
+      }, 3000);
     }
   }
 
@@ -57,6 +63,10 @@ function HomePage() {
     setAjudes(ajudes + 1);
   }
   const closeAjuda = () => {
+    const paisField = paisForm.current.inputEl;
+    const capitalField = capitalForm.current.inputEl;
+    paisField.value = "";
+    capitalField.value = "";
     selectPais();
     setMostrarAjudes(false);
   }
@@ -80,12 +90,10 @@ function HomePage() {
         />
       </List>
       <Block className="flex space-x-1 !space-y-0 py-0 mb-0 mt-0">
-        <Button className="!w-1/3 py-8" 
+        <Button className="!w-1/2 py-8" 
                 onClick={() => onCheckPais()}>Comprovar</Button>
-        <Button className="!w-1/3 py-8" 
+        <Button className="!w-1/2 py-8" 
                 onClick={() => ajuda()}>Ajuda</Button>
-        <Button className="!w-1/3 py-8" 
-                onClick={() => nextPais()}>Next</Button>
         
       </Block>
       <Map countries={data.features} />
@@ -105,6 +113,28 @@ function HomePage() {
               <ListItem title={`Pais: ${getPais()}`}/>
               <ListItem title={`Capital: ${getCapital()}`}/>
             </List>
+          </Block>
+        </Page>
+      </Popup>
+
+      <Popup opened={mostrarError} onBackdropClick={() => setMostrarError(false)}>
+        <Page>
+          <Navbar
+            title="Incorrecte"
+            right={
+              <Link navbar onClick={() => setMostrarError(false)}>
+                X
+              </Link>
+            }
+          />
+          <Block className="space-y-4 text-center">
+            {/* <List strongIos insetIos>
+              <ListItem title={`Pais: ${getPais()}`}/>
+              <ListItem title={`Capital: ${getCapital()}`}/>
+            </List> */}
+            <Block>
+              <h1>El país o la capital no son correctes.</h1>
+            </Block>
           </Block>
         </Page>
       </Popup>

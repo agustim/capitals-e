@@ -20,6 +20,7 @@
     "react-leaflet": "^4.2.1"
   },
   "devDependencies": {
+    "@capacitor/assets": "^3.0.1",
     "@capacitor/cli": "^5.5.0",
     "@types/node": "latest",
     "@types/react": "latest",

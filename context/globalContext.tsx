@@ -44,7 +44,6 @@ export const GlobalContextProvider =  (props:any) => {
 
     const selectPais = () => {
         const number = randomNumber(paisos.length-1 );
-        //const number = 42;
         let y = 0;
         let count = 0;
         for (let i = 0; i < number && count < paisos.length;) {
