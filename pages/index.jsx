@@ -27,6 +27,8 @@ function HomePage() {
   const [mostrarError, setMostrarError] = useState(false);
   const [finalPartida, setFinalPartida] = useState(false);
 
+  const [ajudaPais, setAjudaPais] = useState("");
+  const [ajudaCapital, setAjudaCapital] = useState("");
 
   useEffect(() => {
     setOriginalPaisos(data.features);
@@ -68,6 +70,8 @@ function HomePage() {
   }
 
   const ajuda = () => {
+    setAjudaPais(getPais());
+    setAjudaCapital(getCapital());
     setMostrarAjudes(true);
     setAjudes(ajudes + 1);
     marcarPaisActiuFet();
@@ -75,6 +79,8 @@ function HomePage() {
   }
   const closeAjuda = () => {
     setMostrarAjudes(false);
+    setAjudaPais("");
+    setAjudaCapital("");
     const paisField = paisForm.current.inputEl;
     const capitalField = capitalForm.current.inputEl;
     paisField.value = "";
@@ -136,8 +142,8 @@ function HomePage() {
           />
           <Block className="space-y-4">
             <List strongIos insetIos>
-              <ListItem title={`Pais: ${getPais()}`} />
-              <ListItem title={`Capital: ${getCapital()}`} />
+              <ListItem title={`Pais: ${ajudaPais}`} />
+              <ListItem title={`Capital: ${ajudaCapital}`} />
             </List>
           </Block>
         </Page>
