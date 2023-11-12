@@ -11,6 +11,9 @@ const asList = JSON.parse(fs.readFileSync('geojson/llistat_asia.json'));
 for (let i = 0; i < asList.length; i++) {
   asCountries.features[i].properties.name = asList[i].name;
   asCountries.features[i].properties.capital = asList[i].capital
+  asCountries.features[i].properties.lat = asList[i].lat
+  asCountries.features[i].properties.lon = asList[i].lon
+  asCountries.features[i].properties.zoom = asList[i].zoom
 }
 
 fs.writeFileSync('geojson/as-countries.geo.json', JSON.stringify(asCountries));

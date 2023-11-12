@@ -12,7 +12,7 @@ import {
   ListItem
 } from "konsta/react";
 
-import data from "../geojson/eu-countries.geo.json";
+import data from "../geojson/as-countries.geo.json";
 // import data from "../geojson/demo-countries.json";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { get } from "https";
