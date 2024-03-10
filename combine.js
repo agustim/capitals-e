@@ -2,22 +2,29 @@ var fs = require('fs');
 
 // Load geojson/as-countries.geo.json and geojson/llistat_asia.json
 
-var asCountries = JSON.parse(fs.readFileSync('geojson/as-countries.geo.origin.json'));
-const asList = JSON.parse(fs.readFileSync('geojson/llistat_asia.json'));
+var countries = JSON.parse(fs.readFileSync('geojson/countries.geojson'));
+const myList = JSON.parse(fs.readFileSync('geojson/llistat_africa.json'));
 
+var defCountries = { "type": "FeatureCollection", "features": [] };
 // list of countries in as-counties.geo.json
+// Busquem myList.orig en countries.features.properties.ADMIN
+// Si trobem, afegim a myList el nom del país i les coordenades
 
-
-for (let i = 0; i < asList.length; i++) {
-  asCountries.features[i].properties.name = asList[i].name;
-  asCountries.features[i].properties.capital = asList[i].capital
-  asCountries.features[i].properties.lat = asList[i].lat
-  asCountries.features[i].properties.lon = asList[i].lon
-  asCountries.features[i].properties.zoom = asList[i].zoom
+for (let i = 0; i < myList.length; i++) {
+  for (let j = 0; j < countries.features.length; j++) {
+    if (myList[i].orig === countries.features[j].properties.ADMIN) {
+      countries.features[j].properties.name = myList[i].name;
+      countries.features[j].properties.capital = myList[i].capital;
+      countries.features[j].properties.lat = myList[i].lat;
+      countries.features[j].properties.lon = myList[i].lon;
+      countries.features[j].properties.zoom = myList[i].zoom;
+      defCountries.features.push(countries.features[j]);
+    }
+  }
 }
 
-fs.writeFileSync('geojson/as-countries.geo.json', JSON.stringify(asCountries));
+fs.writeFileSync('geojson/af-countries.geo.json', JSON.stringify(defCountries));
 
-asCountries.features.forEach((country, index) => {
+defCountries.features.forEach((country, index) => {
   console.log(country.properties.name +" "+ country.properties.ADMIN);
 });

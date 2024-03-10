@@ -12,15 +12,16 @@ import {
   ListItem
 } from "konsta/react";
 
-import data from "../geojson/as-countries.geo.json";
+//import data from "../geojson/as-countries.geo.json";
 // import data from "../geojson/demo-countries.json";
+import data from "../geojson/af-countries.geo.json";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { get } from "https";
 
 function HomePage() {
   const { paisos, setPaisos, checkPais, setOriginalPaisos, encerts, ajudes,
     setAjudes, getPais, getCapital, selectPais, nextPais, marcarPaisActiuFet, debugPaisos, 
-    comptarPaisosNoFets, netejarPaisos } = useGlobalContext();
+    comptarPaisosNoFets, netejarPaisos, continent } = useGlobalContext();
   const paisForm = useRef();
   const capitalForm = useRef();
   const [mostrarAjudes, setMostrarAjudes] = useState(false);
@@ -107,7 +108,7 @@ function HomePage() {
   return (
     <Page>
       <Navbar
-        title={`Capitals Europa ${encerts}/${ajudes}`}
+        title={`Capitals ${continent} ${encerts}/${ajudes}`}
       />
       <List strongIos insetIos className="llista !ml-0-safe !mr-0-safe">
         <ListInput

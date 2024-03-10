@@ -32,15 +32,21 @@ export const GlobalContext = React.createContext({
     getPoint: () => {},
     getZoom: () => {},
     nextPais: () => {},
-    debugPaisos: () => {}
+    debugPaisos: () => {},
+    llistaContinent: [] as string[],
+    continent: "" as string,
+    setContinent: (value: string) => {}
 })
 
 export const GlobalContextProvider =  (props:any) => {
+    const [continent, setContinent] = useState<string>("Asia");
     const [originalPaisos, setOriginalPaisos] = useState<any[]>([]);
     const [paisos, setPaisos] = useState<Pais[]>([]);
     const [paisActiu, setPaisActiu] = useState<number | null>(null);
     const [encerts, setEncerts] = useState<number>(0);
     const [ajudes, setAjudes] = useState<number>(0);
+
+    const llistaContinent = ["Europa", "Asia", "Amèrica", "Africa", "Oceania"];
 
     const randomNumber = (max: number) => {
         return Math.floor(Math.random() * max);
@@ -200,7 +206,10 @@ export const GlobalContextProvider =  (props:any) => {
             getPoint,
             getZoom,
             nextPais,
-            debugPaisos
+            debugPaisos,
+            llistaContinent,
+            continent,
+            setContinent
             }}>
             {props.children}
         </GlobalContext.Provider>
