@@ -14,7 +14,8 @@ import {
 
 //import data from "../geojson/as-countries.geo.json";
 // import data from "../geojson/demo-countries.json";
-import data from "../geojson/af-countries.geo.json";
+// import data from "../geojson/af-countries.geo.json";
+import data from "../geojson/oc-countries.geo.json";
 import { useGlobalContext } from "../hooks/useGlobalContext";
 import { get } from "https";
 

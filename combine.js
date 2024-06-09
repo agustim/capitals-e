@@ -1,9 +1,14 @@
+const group_select = "geojson/llistat_oceania.json";
+const output_geojson = "geojson/oc-countries.geo.json";
+const all_countries = "geojson/countries.geojson";
+
+
 var fs = require('fs');
 
 // Load geojson/as-countries.geo.json and geojson/llistat_asia.json
 
-var countries = JSON.parse(fs.readFileSync('geojson/countries.geojson'));
-const myList = JSON.parse(fs.readFileSync('geojson/llistat_africa.json'));
+var countries = JSON.parse(fs.readFileSync(all_countries));
+const myList = JSON.parse(fs.readFileSync(group_select));
 
 var defCountries = { "type": "FeatureCollection", "features": [] };
 // list of countries in as-counties.geo.json
@@ -23,7 +28,7 @@ for (let i = 0; i < myList.length; i++) {
   }
 }
 
-fs.writeFileSync('geojson/af-countries.geo.json', JSON.stringify(defCountries));
+fs.writeFileSync(output_geojson, JSON.stringify(defCountries));
 
 defCountries.features.forEach((country, index) => {
   console.log(country.properties.name +" "+ country.properties.ADMIN);
